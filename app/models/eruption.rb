@@ -1,0 +1,2 @@
+class Eruption < ApplicationRecord
+end

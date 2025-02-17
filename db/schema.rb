@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_17_112047) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_17_130655) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "eruptions", force: :cascade do |t|
+    t.string "name"
+    t.string "country"
+    t.integer "elevation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,5 +40,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_17_112047) do
     t.date "last_eruption"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "country"
+    t.float "latitude"
+    t.float "longitude"
+    t.integer "elevation"
+    t.string "volcano_type"
+    t.integer "vei"
+    t.integer "deaths"
+    t.integer "injuries"
+    t.float "damage"
+    t.integer "houses_destroyed"
+    t.integer "total_deaths"
   end
 end
