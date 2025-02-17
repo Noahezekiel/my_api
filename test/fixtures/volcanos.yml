@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  location: MyString
+  last_eruption: 2025-02-17
+
+two:
+  name: MyString
+  location: MyString
+  last_eruption: 2025-02-17
