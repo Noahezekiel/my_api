@@ -1,11 +1,11 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails"
+gem "rails", "~> 8.0.1"
 # Use postgresql as the database for Active Record
-gem "pg"
+gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma"
+gem "puma", ">= 5.0"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
@@ -46,10 +46,4 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 end
 
-gem 'csv'
-gem 'devise'
-gem 'devise-jwt'
-gem 'pagy'
-gem 'redis'
-gem 'graphql'
-gem 'swagger-blocks'
+
