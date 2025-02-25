@@ -2,12 +2,12 @@
 
 one:
   show_id: MyString
-  movie_type: MyString
+  type: 
   title: MyString
   director: MyString
   cast: MyText
   country: MyString
-  date_added: 2025-02-21
+  date_added: 2025-02-25
   release_year: 1
   rating: MyString
   duration: MyString
@@ -16,12 +16,12 @@ one:
 
 two:
   show_id: MyString
-  movie_type: MyString
+  type: 
   title: MyString
   director: MyString
   cast: MyText
   country: MyString
-  date_added: 2025-02-21
+  date_added: 2025-02-25
   release_year: 1
   rating: MyString
   duration: MyString

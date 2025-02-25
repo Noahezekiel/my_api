@@ -2,7 +2,7 @@ class CreateMovies < ActiveRecord::Migration[8.0]
   def change
     create_table :movies do |t|
       t.string :show_id
-      t.string :movie_type
+      t.string :type
       t.string :title
       t.string :director
       t.text :cast
