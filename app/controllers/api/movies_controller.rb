@@ -1,7 +1,8 @@
 class Api::MoviesController < ApplicationController
     before_action :set_movie, only: [:show, :update, :destroy]
-    before_action :authenticate_user!, except: [:index, :show] # Public access for index & show
-  
+    before_action :doorkeeper_authorize!, only: [:create, :update, :destroy]
+    
+
     # GET /movies (public, cached)
     def index
       movies = Rails.cache.fetch("movies_page_#{params[:page] || 1}", expires_in: 30.minutes) do
@@ -47,13 +48,16 @@ class Api::MoviesController < ApplicationController
     end
   
     private
-  
+
+    def current_user
+      @current_user ||= User.find_by(id: doorkeeper_token.resource_owner_id) if doorkeeper_token
+    end
+    
     def set_movie
       @movie = Movie.find(params[:id])
     end
   
     def movie_params
-      params.require(:movie).permit(:title, :director, :release_year, :genre)
+      params.require(:movie).permit(:show_id, :movie_type, :title, :director, :cast, :country, :date_added, :release_year, :rating, :duration, :listed_in, :description)
     end
   end
-  

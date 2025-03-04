@@ -9,7 +9,7 @@ Doorkeeper.configure do
   resource_owner_from_credentials do |controller|
     params = controller.params
   
-    user = User.find_by(email: params[:username]&.downcase)
+    user = User.find_by(email: params[:email]&.downcase)
   
     if user&.valid_password?(params[:password])
       user
