@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_26_093639) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_07_123058) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -71,6 +71,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_26_093639) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
+  end
+
+  create_table "solid_cache_entries", force: :cascade do |t|
+    t.string "key", null: false
+    t.binary "value", null: false
+    t.datetime "expires_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_solid_cache_entries_on_key", unique: true
   end
 
   create_table "users", force: :cascade do |t|
