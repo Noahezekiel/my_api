@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: proc { [200, { "Content-Type" => "application/json" }, ['{ "message": "Welcome to My API" }']] }
   use_doorkeeper
   # devise_for :users
 
