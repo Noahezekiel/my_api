@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: myapi
+    name: my-api
     env: ruby
     plan: free
     buildCommand: |
