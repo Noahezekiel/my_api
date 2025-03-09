@@ -3,20 +3,14 @@ class Api::MoviesController < ApplicationController
     before_action :doorkeeper_authorize!, only: [:create, :update, :destroy]
     
 
-    # # GET /movies (public, cached)
-    # def index
-    #   movies = Rails.cache.fetch("movies_page_#{params[:page] || 1}", expires_in: 30.minutes) do
-    #     Movie.page(params[:page]).per(20).to_a
-    #   end
-    #   render json: movies
-    # end
-
+    # GET /movies (public, cached)
     def index
-      @movies = Movie.page(params[:page]).per(20) # Example with pagination
-      render json: @movies
+      movies = Rails.cache.fetch("movies_page_#{params[:page] || 1}", expires_in: 30.minutes) do
+        Movie.page(params[:page]).per(20).to_a
+      end
+      render json: movies
     end
-    
-    
+  
   
     # GET /movies/:id (public, cached)
     def show
