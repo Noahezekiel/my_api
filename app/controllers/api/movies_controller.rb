@@ -12,11 +12,10 @@ class Api::MoviesController < ApplicationController
     # end
 
     def index
-      movies = Rails.cache.fetch("movies_page_#{params[:page] || 1}", expires_in: 30.minutes) do
-        Movie.page(params[:page]).per(20).as_json
-      end
-      render json: movies
-    end    
+      @movies = Movie.page(params[:page]).per(20) # Example with pagination
+      render json: @movies
+    end
+    
     
   
     # GET /movies/:id (public, cached)
