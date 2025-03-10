@@ -14,14 +14,14 @@ class User < ApplicationRecord
 
   # If you have this method, modify it:
   def as_json(options = {})
-  super(options.merge(
-    except: [
-      :encrypted_password,
-      :reset_password_token,
-      :reset_password_sent_at,
-      :password_digest  # ✅ Properly closed array
-    ]  # ← This closing bracket was missing
-  ))
+    super(options.merge(
+      except: [
+        :encrypted_password,
+        :reset_password_token,
+        :reset_password_sent_at,
+        :password_digest  # ✅ Properly closed array
+      ]  # ← This closing bracket was missing
+    ))
   end
 
   # If you previously added serializable_hash instead:

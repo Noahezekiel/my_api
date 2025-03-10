@@ -206,7 +206,13 @@ Expected Response (204 No Content)
 The follow the following link to access the postman documentation
 
     https://documenter.getpostman.com/view/42403948/2sAYdkG8Lb
-    
+
+### Render Link
+The follow the following link to access the host page: https://my-api-ergx.onrender.com
+
+NB: You can test GET using curl -X GET "https://my-api-ergx.onrender.com/api/movies?page=1" but when you want to use postman, you need redis for window 
+
+
 
 ### The Core Team
 Noah Ezekiel
