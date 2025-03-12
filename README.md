@@ -2,6 +2,8 @@
 ***
 
 ## Task
+NOTE: The project was done in main branch, i have to copy it to dev branch because your first review said my repo (dev) was empty. If you want to see all my commit, switch to main branch.
+  
 The goal of this project is to create a Movie API that allows users to manage a large dataset of movies. 
 The challenge was implementing authentication, pagination, caching, and API documentation while keeping 
 the API accessible for public use.
