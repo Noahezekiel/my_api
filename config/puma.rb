@@ -1,4 +1,3 @@
-
 # threads. This includes Active Record's `pool` parameter in `database.yml`.
 threads_count = ENV.fetch("RAILS_MAX_THREADS", 3).to_i
 threads threads_count, threads_count
@@ -13,14 +12,11 @@ plugin :tmp_restart
 plugin :solid_queue if ENV["SOLID_QUEUE_IN_PUMA"]
 
 pidfile ENV["PIDFILE"] if ENV["PIDFILE"]
-# port ENV.fetch("PORT") { 10000 }
 
-workers ENV.fetch("WEB_CONCURRENCY", 1).to_i if ENV["WEB_CONCURRENCY"]
+# Workers configuration (fixed)
+workers ENV.fetch("WEB_CONCURRENCY", 1).to_i
 preload_app!
 
 on_worker_boot do
-    ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
+  ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
 end
-  
-
-
