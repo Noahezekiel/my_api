@@ -13,10 +13,10 @@ class Api::MoviesController < ApplicationController
   
     def index
       movies = Rails.cache.fetch("movies_page_#{params[:page] || 1}", expires_in: 30.minutes) do
-        Movie.page(params[:page]).per(20).map(&:as_json) # Convert to JSON-friendly format
+        Movie.page(params[:page]).per(20).to_a.map(&:as_json) # Convert to array before caching
       end
       render json: movies
-    end
+    end    
     
   
     # GET /movies/:id (public, cached)
