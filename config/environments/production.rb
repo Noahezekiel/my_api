@@ -1,6 +1,8 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+
+  config.active_record.cache_versioning = false
   
   config.cache_store = :solid_cache_store
 
