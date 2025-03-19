@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_08_124014) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_19_011604) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -80,7 +80,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_08_124014) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "key_hash"
+    t.integer "byte_size"
     t.index ["key"], name: "index_solid_cache_entries_on_key", unique: true
+    t.index ["key_hash"], name: "index_solid_cache_entries_on_key_hash", unique: true
   end
 
   create_table "users", force: :cascade do |t|

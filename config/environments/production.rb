@@ -1,10 +1,6 @@
 require "active_support/core_ext/integer/time"
-
+require "solid_cache/rails"
 Rails.application.configure do
-
-  config.active_record.cache_versioning = false
-  
-  config.cache_store = :solid_cache_store
 
   # Code is not reloaded between requests.
   config.enable_reloading = false
