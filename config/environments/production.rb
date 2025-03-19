@@ -1,5 +1,5 @@
 require "active_support/core_ext/integer/time"
-require "solid_cache/rails"
+# require "solid_cache/rails"
 Rails.application.configure do
 
   # Code is not reloaded between requests.
