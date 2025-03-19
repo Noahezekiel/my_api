@@ -5,24 +5,24 @@ class Api::MoviesController < ApplicationController
 
     # GET /movies (public, cached)
     
-    # def index
-    #   # This line uses Rails caching (no direct SQL):
-    #   @movies = Rails.cache.fetch("movies_page_#{params[:page]}", expires_in: 1.hour) do
-    #     Movie.page(params[:page]).per(20) # Fetch movies with pagination
-    #   end
-  
-    #   render json: @movies
-    # end
-  
     def index
       Rails.logger.info("Fetching movies without cache...")
+    
       @movies = Movie.page(params[:page]).per(20) # Fetch movies directly
     
-      render json: @movies
+      render json: {
+        movies: @movies,
+        pagination: {
+          current_page: @movies.current_page,
+          total_pages: @movies.total_pages,
+          total_entries: @movies.total_count
+        }
+      }
     rescue => e
       Rails.logger.error("Error in MoviesController#index: #{e.message}")
       render json: { error: e.message }, status: 500
-    end    
+    end
+    
     
     # GET /movies/:id (public, cached)
     def show
