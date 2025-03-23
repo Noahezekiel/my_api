@@ -8,10 +8,11 @@
 #   end
 # end
 
+Rails.application.routes.draw do
+  get '/run-migrations', to: 'migrations#run'
 
-if Rails.env.production?
-  require 'sidekiq/web'
-  Rails.application.routes.draw do
-    get '/run-migrations', to: 'migrations#run'
+  if Rails.env.production? && defined?(Sidekiq)
+    require 'sidekiq/web'
   end
 end
+
