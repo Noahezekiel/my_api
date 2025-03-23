@@ -1,0 +1,2 @@
+2025-03-21 12:03:42.346 WAT [8040] LOG:  redirecting log output to logging collector process
+2025-03-21 12:03:42.346 WAT [8040] HINT:  Future log output will appear in directory "log".
