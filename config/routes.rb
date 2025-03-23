@@ -8,6 +8,8 @@
 #   end
 # end
 
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   get '/run-migrations', to: 'migrations#run'
 end
