@@ -1,17 +1,20 @@
-# Rails.application.routes.draw do
-#   root to: proc { [200, { "Content-Type" => "application/json" }, ['{ "message": "Welcome to My API" }']] }
-#   use_doorkeeper
-#   devise_for :users
-
-#   namespace :api do
-#     resources :movies, only: [:index, :show, :create, :update, :destroy]
-#   end
-# end
-
-require 'sidekiq/web'
-
 Rails.application.routes.draw do
-  get '/run-migrations', to: 'migrations#run'
+  post "/graphql", to: "graphql#execute"
+
+  use_doorkeeper
+  devise_for :users, controllers: {
+    sessions: "users/sessions",
+    registrations: "users/registrations"
+  }
+
+  # User Management Routes
+  get "/users", to: "users#index"
+  put "/users/:id", to: "users#update"
+  delete "/users/:id", to: "users#destroy"
+
+  # User Management Routes
+  resources :users, only: [:index, :update, :destroy]
+
+  # Movie Management Routes
+  resources :movies, only: [:index, :create, :update, :destroy]
 end
-
-

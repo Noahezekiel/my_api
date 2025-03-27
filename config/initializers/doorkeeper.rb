@@ -1,23 +1,12 @@
-
 Doorkeeper.configure do
   orm :active_record
 
-  # ✅ Enable password grant flow
-  grant_flows %w[password]
+  # ✅ Enable grant flows
+  grant_flows %w[password client_credentials authorization_code]
 
-  # Authenticate users using email & password
-  resource_owner_from_credentials do |controller|
-    params = controller.params
-  
-    user = User.find_by(email: params[:email]&.downcase)
-  
-    if user&.valid_password?(params[:password])
-      user
-    else
-      nil
-    end
+  # ✅ Allow login using email instead of username
+  resource_owner_from_credentials do |routes|
+    user = User.find_by(email: params[:email]) # 🔥 Use email
+    user if user&.valid_password?(params[:password])
   end
-
-  access_token_expires_in 9.hours
-  use_refresh_token
 end

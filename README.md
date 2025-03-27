@@ -206,8 +206,8 @@ Expected Response (204 No Content)
 
 ### Postman Documentation Link
 The follow the following link to access the postman documentation
-
-    https://documenter.getpostman.com/view/42403948/2sAYdkG8Lb
+   
+    https://documenter.getpostman.com/view/42403948/2sAYkLoHwu
 
 ### Render Link
 The follow the following link to access the host page: https://my-api-ergx.onrender.com

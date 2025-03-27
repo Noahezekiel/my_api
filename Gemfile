@@ -1,28 +1,13 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.1"
+gem "rails", "~> 8.0.2"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
-
-gem 'devise'
-gem 'pagy'
-gem 'devise-jwt'
-gem 'redis'
-gem 'graphql'
-gem 'doorkeeper'
-gem 'csv'
-gem 'kaminari'
-gem 'stringio', '3.1.5'
-gem 'sidekiq'
-
-
-
-
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -34,6 +19,16 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
+gem 'devise'
+gem 'doorkeeper'
+gem 'graphql'
+gem 'rack-cors'
+gem 'csv'
+gem 'kaminari'
+
+
+
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -60,5 +55,3 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 end
-
-
