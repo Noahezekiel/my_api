@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
 
   # Root Route (Optional Fixes 404 Error when accessing)
-  root to: -> { [200, { "Content-Type" => "application/json" }, ['{"message": "Welcome to the Movie API"}']] }
+  # root to: -> { [200, { "Content-Type" => "application/json" }, ['{"message": "Welcome to the Movie API"}']] }
 
   # User Management Routes
   resources :users, only: [:index, :update, :destroy]
