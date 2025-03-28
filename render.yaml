@@ -6,4 +6,4 @@ services:
     buildCommand: |
       bundle install
       RAILS_ENV=production bin/rails db:migrate
-    startCommand: bin/rails server -b 0.0.0.0 -p $PORT
+    startCommand: rails server -b 0.0.0.0 -p $PORT
