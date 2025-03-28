@@ -25,7 +25,7 @@ gem 'graphql'
 gem 'rack-cors'
 gem 'csv'
 gem 'kaminari'
-
+gem 'rails_12factor', group: :production
 
 
 

@@ -89,7 +89,7 @@ Postman Documentation
         "refresh_token": "The refresh token",
         "created_at": 1728231096
     }
-    
+NB: This will generate client ID and client secret    
 rails console
 app = Doorkeeper::Application.create!(
   name: "My Movie API Client",
@@ -100,7 +100,9 @@ puts "Client ID: #{app.uid}"
 puts "Client Secret: #{app.secret}"
 
 
-2. Register a New User (Sign Up)
+2. User (CRUD Operations)
+
+** Register a New User (Sign Up)
     Method: POST
     URL: http://localhost:3000/users
     Headers: "Content-Type": "application/json"
@@ -114,7 +116,7 @@ Body (JSON, raw format):
   }
 }
 
-3. Login (Sign In)
+** Login (Sign In)
 Method: POST
 URL: http://localhost:3000/users/sign_in
 Headers: "Content-Type": "application/json"
@@ -128,27 +130,54 @@ json
   }
 }
 
-Expected Response (200 OK)
+
+** View All Users 
+Method: POST
+URL: http://localhost:3000/users
+Headers: "Content-Type": "application/json"
+
+
+** Update User
+Method: PUT
+URL: http://localhost:3000/users/:ID
+Headers: "Content-Type": "application/json",
+        "Authorization": "Bearer YOUR_ACCESS_TOKEN"
+
+Body (JSON, raw format):
 json
 {
-  "id": 1,
-  "email": "test@example.com",
-  "token": "eyJhbGciOiJIUzI1NiJ9..."
+  "user": {
+    "email": "all@gmail.com",
+    "password": "654321",
+    "password_confirmation": "654321"
+  }
 }
-NB: Copy the "token" value from the response and save it for future requests.
 
 
-4. Movies API (CRUD Operations)
+** Delete User
+Method: Delete
+URL: http://localhost:3000/users/:ID
+Headers: "Content-Type": "application/json",
+        "Authorization": "Bearer YOUR_ACCESS_TOKEN"
+
+
+
+
+3. Movies API (CRUD Operations)
 
 **Get All Movies (Public)
+Headers: "Content-Type": "application/json"
 Method: GET
 URL: http://localhost:3000/movies?page=1
 Expected Response (200 OK)
 json
 
+
 **Create a New Movie (Requires Authentication)
+Headers: "Content-Type": "application/json",
+        "Authorization": "Bearer YOUR_ACCESS_TOKEN"
 Method: POST
-URL: http://localhost:3000/api/movies
+URL: http://localhost:3000/movies
 Headers:
   "Content-Type": "application/json",
   "Authorization": "Bearer <your_token_here>"
@@ -171,11 +200,12 @@ json
     "description": "Example description."
   }
 }
-Expected Response (201 Created)
+
+
 
 **Update a Movie (Requires Authentication)
 Method: PATCH
-URL: http://localhost:3000/api/movies/2
+URL: http://localhost:3000/movies/:ID
 Headers:
   "Content-Type": "application/json",
   "Authorization": "Bearer <your_token_here>"
@@ -183,26 +213,19 @@ Body (JSON, raw format):
 json
 {
   "movie": {
-    "title": "Interstellar - Updated"
+    "title": "Inception Updated",
+    "description": "A mind-bending thriller with an extended cut.",
+    "release_year": 2010
   }
 }
-Expected Response (200 OK)
-
 
 **Delete a Movie (Requires Authentication)
 Method: DELETE
-URL: http://localhost:3000/movies/2
-Headers: "Authorization": "Bearer <your_token_here>"
+URL: http://localhost:3000/movies/:ID
+Headers: "Authorization": "Bearer <your_token_here>",
+        "Content-Type": "application/json"
 
-Expected Response (204 No Content)
-(No response body, meaning the movie is deleted successfully.)
-Logout (Sign Out)
-Method: DELETE
-URL: http://localhost:3000/users/sign_out
-Headers: "Authorization": "Bearer <your_token_here>"
 
-Expected Response (204 No Content)
-(No response body, meaning logout was successful.)
 
 ### Postman Documentation Link
 The follow the following link to access the postman documentation
@@ -211,9 +234,6 @@ The follow the following link to access the postman documentation
 
 ### Render Link
 The follow the following link to access the host page: https://my-api-ergx.onrender.com
-
-NB: You can test GET using curl -X GET "https://my-api-ergx.onrender.com/api/movies?page=1" but when you want to use postman, you need redis for window 
-
 
 
 ### The Core Team
