@@ -7,16 +7,8 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
 
-
-
-  # Root Route (Optional fix for 404 Error)
+  # Root Route (Optional Fixes 404 Error when accessing)
   root to: -> { [200, { "Content-Type" => "application/json" }, ['{"message": "Welcome to the Movie API"}']] }
-
-
-  # User Management Routes
-  get "/users", to: "users#index"
-  put "/users/:id", to: "users#update"
-  delete "/users/:id", to: "users#destroy"
 
   # User Management Routes
   resources :users, only: [:index, :update, :destroy]
