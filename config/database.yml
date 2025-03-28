@@ -6,6 +6,11 @@ default: &default
 development:
   <<: *default
   database: movie_api_development
+  username: myapp
+  password: 24Feb1985
+  port: 5432
+  host: localhost
+  
 
 test:
   <<: *default
@@ -14,3 +19,5 @@ test:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
+
+  
