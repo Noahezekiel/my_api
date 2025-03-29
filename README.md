@@ -91,13 +91,12 @@ Postman Documentation
     }
 NB: This will generate client ID and client secret    
 rails console
-app = Doorkeeper::Application.create!(
-  name: "My Movie API Client",
-  redirect_uri: "",
+Doorkeeper::Application.create!(
+  name: "Postman Client",
+  redirect_uri: "urn:ietf:wg:oauth:2.0:oob",
   scopes: ""
 )
-puts "Client ID: #{app.uid}"
-puts "Client Secret: #{app.secret}"
+
 
 
 2. User (CRUD Operations)
