@@ -23,4 +23,5 @@ production:
   # host: dpg-cv54dcvnoe9s73edl9g0-a.oregon-postgres.render.com
   # port: 5432
   url: <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   sslmode: require
