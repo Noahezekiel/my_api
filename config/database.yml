@@ -8,9 +8,8 @@ development:
   database: movie_api_development
   username: myapp
   password: 24Feb1985
-  port: 5432
   host: localhost
-  
+  port: 5432
 
 test:
   <<: *default
@@ -18,6 +17,9 @@ test:
 
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
-
-  
+  database: movie_api_db_a2dq
+  username: movie_api_db_a2dq_user
+  password: <%= ENV["DB_PASSWORD"] %>
+  host: dpg-cv54dcvnoe9s73edl9g0-a.oregon-postgres.render.com
+  port: 5432
+  sslmode: require
