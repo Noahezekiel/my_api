@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
     before_action :authenticate_user_with_token!
     before_action :set_user, only: [:update, :destroy]
-    before_action :authorize_admin, only: [:index] # Only admins can see all users
+    # before_action :authorize_admin, only: [:index] # Only admins can see all users
+    before_action :authenticate_user_with_token!, only: [:index]
     before_action :authorize_user_or_admin, only: [:update, :destroy] # Users can edit/delete their own account
   
     # GET /users - Fetch all users (Admin only)
