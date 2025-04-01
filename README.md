@@ -53,7 +53,6 @@ To install the project, follow these steps:
 
 ## Usage
 Postman Documentation
-
 1. Authenticate User/Admin to get the access token
 --Open Postman and click "New Request".
 --Set Method to POST.
