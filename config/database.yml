@@ -17,11 +17,5 @@ test:
 
 production:
   <<: *default
-  # database: movie_api_db_a2dq
-  # username: movie_api_db_a2dq_user
-  # password: <%= ENV["DB_PASSWORD"] %>
-  # host: dpg-cv54dcvnoe9s73edl9g0-a.oregon-postgres.render.com
-  # port: 5432
   url: <%= ENV["DATABASE_URL"] || "DATABASE_URL_NOT_SET" %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  sslmode: require
