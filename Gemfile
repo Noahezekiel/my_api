@@ -17,7 +17,7 @@ gem 'graphql'
 gem 'doorkeeper'
 gem 'csv'
 gem 'kaminari'
-gem 'stringio', '3.1.5'
+gem 'stringio', '3.1.7'
 
 
 

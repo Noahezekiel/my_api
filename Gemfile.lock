@@ -318,7 +318,7 @@ GEM
       net-sftp (>= 2.1.2)
       net-ssh (>= 2.8.0)
       ostruct
-    stringio (3.1.5)
+    stringio (3.1.7)
     thor (1.3.2)
     thruster (0.1.11)
     thruster (0.1.11-x86_64-linux)
@@ -369,7 +369,7 @@ DEPENDENCIES
   solid_cable
   solid_cache
   solid_queue
-  stringio (= 3.1.5)
+  stringio (= 3.1.7)
   thruster
   tzinfo-data
 
